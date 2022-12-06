@@ -44,3 +44,16 @@ let selectedProduct = (product) => {
     selectedColor.appendChild(option);
   }
 };
+
+// Fonction qui enregistre dans un objet les options de l'utilisateur au click sur le bouton ajouter au panier
+let registredProduct = (product) => {
+  // Écoute de l'évènement click sur le bouton ajouter
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (selectedColor.value == false) {
+      confirm("Veuillez sélectionner une couleur");
+    } else if (selectedQuantity.value == 0) {
+      confirm("Veuillez sélectionner le nombre d'articles souhaités");
+    } else {
+      alert("Votre article a bien été ajouté au panier");
