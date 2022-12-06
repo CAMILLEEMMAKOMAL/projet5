@@ -243,3 +243,21 @@ btnValidate.addEventListener("click", (event) => {
       return false;
     }
   }
+
+  // Fonctions de contrôle du champ Email:
+  function mailControl() {
+    const courriel = contact.email;
+    let inputMail = document.querySelector("#email");
+    if (regExEmail(courriel)) {
+      inputMail.style.backgroundColor = "pink";
+
+      document.querySelector("#emailErrorMsg").textContent = "";
+      return true;
+    } else {
+      inputMail.style.backgroundColor = "#FF6F61";
+
+      document.querySelector("#emailErrorMsg").textContent =
+        "Champ Email de formulaire invalide, ex: example@contact.fr";
+      return false;
+    }
+  }
