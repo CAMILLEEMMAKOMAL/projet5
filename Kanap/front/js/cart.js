@@ -279,3 +279,15 @@ btnValidate.addEventListener("click", (event) => {
   } else {
     error("Veuillez bien remplir le formulaire");
   }
+
+   /* FIN GESTION DU FORMULAIRE */
+
+  /* REQUÊTE DU SERVEUR ET POST DES DONNÉES */
+  function sendToServer() {
+    const sendToServer = fetch("http://localhost:3000/api/products/order", {
+      method: "POST",
+      body: JSON.stringify({ contact, products }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
