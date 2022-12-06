@@ -261,3 +261,12 @@ btnValidate.addEventListener("click", (event) => {
       return false;
     }
   }
+
+  // Contrôle validité formulaire avant de l'envoyer dans le local storage
+  if (
+    firstNameControl() &&
+    lastNameControl() &&
+    addressControl() &&
+    cityControl() &&
+    mailControl()
+  ) {
