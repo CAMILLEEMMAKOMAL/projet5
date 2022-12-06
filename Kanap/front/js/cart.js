@@ -85,3 +85,22 @@ async function getProductById(productId) {
       });
   }
   displayCart();
+
+  // Modification de la quantité
+function changeQuantity() {
+    const quantityInputs = document.querySelectorAll(".itemQuantity");
+    quantityInputs.forEach((quantityInput) => {
+      quantityInput.addEventListener("change", (event) => {
+        event.preventDefault();
+        const inputValue = event.target.value;
+        const dataId = event.target.getAttribute("data-id");
+        const dataColor = event.target.getAttribute("data-color");
+        let cart = localStorage.getItem("cart");
+        let items = JSON.parse(cart);
+  
+        items = items.map((item, index) => {
+          if (item.id === dataId && item.color === dataColor) {
+            item.quantity = inputValue;
+          }
+          return item;
+        });
