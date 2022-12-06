@@ -152,3 +152,22 @@ btnValidate.addEventListener("click", (event) => {
   };
 
   console.log(contact);
+
+  /* GESTION DU FORMULAIRE */
+
+  // Regex pour le contrôle des champs Prénom, Nom et Ville
+  const regExPrenomNomVille = (value) => {
+    return /^[A-Z][A-Za-z\é\è\ê\-]+$/.test(value);
+  };
+
+  // Regex pour le contrôle du champ Adresse
+  const regExAdresse = (value) => {
+    return /^[a-zA-Z0-9.,-_ ]{5,50}[ ]{0,2}$/.test(value);
+  };
+
+  // Regex pour le contrôle du champ Email
+  const regExEmail = (value) => {
+    return /^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/.test(
+      value
+    );
+  };
