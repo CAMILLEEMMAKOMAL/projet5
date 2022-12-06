@@ -16,3 +16,12 @@ fetch(`http://localhost:3000/api/products/${productId}`)
   .catch((error) => {
     alert(error);
   });
+
+  // Sélection de l'ID colors
+const selectedColor = document.querySelector("#colors");
+
+// Sélection de l'ID quantity
+const selectedQuantity = document.querySelector("#quantity");
+
+// Sélection du bouton Ajouter au panier
+const button = document.querySelector("#addToCart");
