@@ -291,3 +291,18 @@ btnValidate.addEventListener("click", (event) => {
         "Content-Type": "application/json",
       },
     })
+     // Récupération et stockage de la réponse de l'API (orderId)
+     .then((response) => {
+        return response.json();
+      })
+      .then((server) => {
+        orderId = server.orderId;
+        console.log(orderId);
+      });
+
+    // Si l'orderId a bien été récupéré, on redirige l'utilisateur vers la page de Confirmation
+    if (orderId != "") {
+      location.href = "confirmation.html?id=" + orderId;
+    }
+  }
+});
