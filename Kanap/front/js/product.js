@@ -35,3 +35,12 @@ let selectedProduct = (product) => {
   document.querySelector("#title").textContent += product.name;
   document.querySelector("#price").textContent += product.price;
   document.querySelector("#description").textContent += product.description;
+
+  // Boucle intégrant les différentes couleurs du produit dans le HTML
+  for (color of product.colors) {
+    let option = document.createElement("option");
+    option.innerHTML = `${color}`;
+    option.value = `${color}`;
+    selectedColor.appendChild(option);
+  }
+};
