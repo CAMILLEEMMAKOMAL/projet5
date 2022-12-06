@@ -69,3 +69,40 @@ let registredProduct = (product) => {
         quantity: parseInt(selectedQuantity.value, 10),
       };
       console.log(selectedProduct);
+
+       /**** Gestion du localStorage ****/
+
+      // Récupération des données du localStorage
+      let existingCart = JSON.parse(localStorage.getItem("cart"));
+
+      // Si le localStorage existe
+      if (existingCart) {
+        console.log("Il y a déjà un produit dans le panier, on compare les données");
+        // On recherche avec la méthode find() si l'id et la couleur d'un article sont déjà présents
+        let item = existingCart.find(
+          (item) =>
+            item.id == selectedProduct.id && item.color == selectedProduct.color
+        );
+        // Si oui, on incrémente la nouvelle quantité et la mise à jour du prix total de l'article
+        if (item) {
+          item.quantity = item.quantity + selectedProduct.quantity;
+          item.totalPrice += item.price * selectedProduct.quantity;
+          localStorage.setItem("cart", JSON.stringify(existingCart));
+          console.log("Quantité supplémentaire dans le panier.");
+          return;
+        }
+        // Si non, alors on push le nouvel article sélectionné
+        existingCart.push(selectedProduct);
+        localStorage.setItem("cart", JSON.stringify(existingCart));
+        console.log("Le produit a été ajouté au panier");
+
+      } else {
+        // Sinon création d'un tableau dans le lequel on push l'objet "selectedProduct"
+        let createLocalStorage = [];
+        createLocalStorage.push(selectedProduct);
+        localStorage.setItem("cart", JSON.stringify(createLocalStorage));
+        console.log("Le panier est vide, on ajoute le premier produit");
+      }
+    }
+  });
+};
