@@ -49,3 +49,23 @@ async function displayCart() {
                   </div>
                   </article>`;
   }
+  // Boucle d'affichage du nombre total d'articles dans le panier et de la somme totale
+  let totalQuantity = 0;
+  let totalPrice = 0;
+
+  for (i = 0; i < cart.length; i++) {
+    const article = await getProductById(cart[i].id);
+    totalQuantity += parseInt(cart[i].quantity);
+    totalPrice += parseInt(article.price * cart[i].quantity);
+  }
+
+  document.getElementById("totalQuantity").innerHTML = totalQuantity;
+  document.getElementById("totalPrice").innerHTML = totalPrice;
+
+  if (i == cart.length) {
+    const displayBasket = parser.parseFromString(cartArray, "text/html");
+    positionEmptyCart.appendChild(displayBasket.body);
+    changeQuantity();
+    deleteItem();
+  }
+}
