@@ -171,3 +171,21 @@ btnValidate.addEventListener("click", (event) => {
       value
     );
   };
+
+   // Fonctions de contrôle du champ Prénom:
+   function firstNameControl() {
+    const prenom = contact.firstName;
+    let inputFirstName = document.querySelector("#firstName");
+    if (regExPrenomNomVille(prenom)) {
+      inputFirstName.style.backgroundColor = "pink";
+
+      document.querySelector("#firstNameErrorMsg").textContent = "";
+      return true;
+    } else {
+      inputFirstName.style.backgroundColor = "#FF6F61";
+
+      document.querySelector("#firstNameErrorMsg").textContent =
+        "Champ Prénom de formulaire invalide, ex: Camille";
+      return false;
+    }
+  }
