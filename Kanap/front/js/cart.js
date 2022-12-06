@@ -112,3 +112,16 @@ function changeQuantity() {
     });
   });
 }
+
+// Suppression d'un article
+function deleteItem() {
+    const deleteButtons = document.querySelectorAll(".deleteItem");
+    deleteButtons.forEach((deleteButton) => {
+      deleteButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        const deleteId = event.target.getAttribute("data-id");
+        const deleteColor = event.target.getAttribute("data-color");
+        cart = cart.filter(
+          (element) => !(element.id == deleteId && element.color == deleteColor)
+        );
+        console.log(cart);
