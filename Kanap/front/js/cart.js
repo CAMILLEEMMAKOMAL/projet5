@@ -306,3 +306,20 @@ btnValidate.addEventListener("click", (event) => {
     }
   }
 });
+
+/* FIN REQUÊTE DU SERVEUR ET POST DES DONNÉES */
+
+// Maintenir le contenu du localStorage dans le champs du formulaire
+
+let dataFormulaire = JSON.parse(localStorage.getItem("contact"));
+
+console.log(dataFormulaire);
+if (dataFormulaire) {
+  document.querySelector("#firstName").value = dataFormulaire.firstName;
+  document.querySelector("#lastName").value = dataFormulaire.lastName;
+  document.querySelector("#address").value = dataFormulaire.address;
+  document.querySelector("#city").value = dataFormulaire.city;
+  document.querySelector("#email").value = dataFormulaire.email;
+} else {
+  console.log("Le formulaire est vide");
+}
