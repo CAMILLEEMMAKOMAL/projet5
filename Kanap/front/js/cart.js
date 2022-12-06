@@ -133,3 +133,22 @@ function deleteItem() {
     });
   });
 }
+
+/* LE FORMULAIRE */
+
+// sélection du bouton Valider
+const btnValidate = document.querySelector("#order");
+
+// Écoute du bouton Valider sur le click pour pouvoir valider le formulaire
+btnValidate.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  let contact = {
+    firstName: document.querySelector("#firstName").value,
+    lastName: document.querySelector("#lastName").value,
+    address: document.querySelector("#address").value,
+    city: document.querySelector("#city").value,
+    email: document.querySelector("#email").value,
+  };
+
+  console.log(contact);
