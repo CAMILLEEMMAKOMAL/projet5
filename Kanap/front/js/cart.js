@@ -207,3 +207,21 @@ btnValidate.addEventListener("click", (event) => {
       return false;
     }
   }
+
+  // Fonctions de contrôle du champ Adresse:
+  function addressControl() {
+    const adresse = contact.address;
+    let inputAddress = document.querySelector("#address");
+    if (regExAdresse(adresse)) {
+      inputAddress.style.backgroundColor = "pink";
+
+      document.querySelector("#addressErrorMsg").textContent = "";
+      return true;
+    } else {
+      inputAddress.style.backgroundColor = "#FF6F61";
+
+      document.querySelector("#addressErrorMsg").textContent =
+        "Champ Adresse de formulaire invalide, ex: 10 rue de la tour eiffel";
+      return false;
+    }
+  }
