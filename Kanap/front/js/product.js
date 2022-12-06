@@ -57,3 +57,15 @@ let registredProduct = (product) => {
       confirm("Veuillez sélectionner le nombre d'articles souhaités");
     } else {
       alert("Votre article a bien été ajouté au panier");
+
+      // Récupération des informations du produit sélectionné
+      let selectedProduct = {
+        id: product._id,
+        name: product.name,
+        img: product.imageUrl,
+        altTxt: product.altTxt,
+        description: product.description,
+        color: selectedColor.value,
+        quantity: parseInt(selectedQuantity.value, 10),
+      };
+      console.log(selectedProduct);
