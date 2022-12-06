@@ -225,3 +225,21 @@ btnValidate.addEventListener("click", (event) => {
       return false;
     }
   }
+
+  // Fonctions de contrôle du champ Ville:
+  function cityControl() {
+    const ville = contact.city;
+    let inputCity = document.querySelector("#city");
+    if (regExPrenomNomVille(ville)) {
+      inputCity.style.backgroundColor = "pink";
+
+      document.querySelector("#cityErrorMsg").textContent = "";
+      return true;
+    } else {
+      inputCity.style.backgroundColor = "#FF6F61";
+
+      document.querySelector("#cityErrorMsg").textContent =
+        "Champ Ville de formulaire invalide, ex: Paris";
+      return false;
+    }
+  }
