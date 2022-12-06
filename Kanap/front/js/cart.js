@@ -104,3 +104,11 @@ function changeQuantity() {
           }
           return item;
         });
+        // Mise à jour du localStorage
+      let itemsStr = JSON.stringify(items);
+      localStorage.setItem("cart", itemsStr);
+      // Refresh de la page Panier
+      location.reload();
+    });
+  });
+}
