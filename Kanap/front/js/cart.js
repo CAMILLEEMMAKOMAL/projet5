@@ -125,3 +125,11 @@ function deleteItem() {
           (element) => !(element.id == deleteId && element.color == deleteColor)
         );
         console.log(cart);
+        // Mise à jour du localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+      // Refresh de la page Panier
+      location.reload();
+      alert("Article supprimé du panier.");
+    });
+  });
+}
