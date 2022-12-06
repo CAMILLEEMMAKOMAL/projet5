@@ -189,3 +189,21 @@ btnValidate.addEventListener("click", (event) => {
       return false;
     }
   }
+
+  // Fonctions de contrôle du champ Nom:
+  function lastNameControl() {
+    const nom = contact.lastName;
+    let inputLastName = document.querySelector("#lastName");
+    if (regExPrenomNomVille(nom)) {
+      inputLastName.style.backgroundColor = "pink";
+
+      document.querySelector("#lastNameErrorMsg").textContent = "";
+      return true;
+    } else {
+      inputLastName.style.backgroundColor = "#FF6F61";
+
+      document.querySelector("#lastNameErrorMsg").textContent =
+        "Champ Nom de formulaire invalide, ex: Dupont";
+      return false;
+    }
+  }
