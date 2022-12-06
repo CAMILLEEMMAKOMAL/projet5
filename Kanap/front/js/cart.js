@@ -13,3 +13,9 @@ async function displayCart() {
     const positionEmptyCart = document.getElementById("cart__items");
     let cartArray = [];
   
+ // Si le localstorage est vide
+ if (cart === null || cart === 0) {
+    positionEmptyCart.textContent = "Votre panier est vide";
+  } else {
+    console.log("Des produits sont présents dans le panier");
+  }
