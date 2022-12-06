@@ -69,3 +69,19 @@ async function displayCart() {
     deleteItem();
   }
 }
+
+// Récupération des produits de l'API
+async function getProductById(productId) {
+    return fetch("http://localhost:3000/api/products/" + productId)
+      .then(function (res) {
+        return res.json();
+      })
+      .catch((err) => {
+        // Erreur serveur
+        console.log("erreur");
+      })
+      .then(function (response) {
+        return response;
+      });
+  }
+  displayCart();
