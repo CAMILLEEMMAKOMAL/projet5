@@ -270,3 +270,12 @@ btnValidate.addEventListener("click", (event) => {
     cityControl() &&
     mailControl()
   ) {
+    // Enregistrer le formulaire dans le local storage
+    localStorage.setItem("contact", JSON.stringify(contact));
+
+    document.querySelector("#order").value =
+      "Articles et formulaire valide\n Passer commande !";
+    sendToServer();
+  } else {
+    error("Veuillez bien remplir le formulaire");
+  }
